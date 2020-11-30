@@ -74,9 +74,11 @@
          <li><a href="{{ route('student.group.view') }}"><i class="ti-more"></i>Student Group</a></li>
          <li><a href="{{ route('student.shift.view') }}"><i class="ti-more"></i>Student Shift</a></li>
          <li><a href="{{ route('fee.category.view') }}"><i class="ti-more"></i>Fee Category</a></li>
-          <li><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Fee Category Amount</a></li>
-           <li><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exam Type</a></li>
-           <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>School Subject</a></li>
+        <li><a href="{{ route('fee.amount.view') }}"><i class="ti-more"></i>Fee Category Amount</a></li>
+         <li><a href="{{ route('exam.type.view') }}"><i class="ti-more"></i>Exam Type</a></li>
+         <li><a href="{{ route('school.subject.view') }}"><i class="ti-more"></i>School Subject</a></li>
+         <li><a href="{{ route('assign.subject.view') }}"><i class="ti-more"></i>Assign Subject</a></li>
+         <li><a href="{{ route('designation.view') }}"><i class="ti-more"></i>Designation </a></li>
          
             
           </ul>
