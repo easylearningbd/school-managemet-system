@@ -26,6 +26,10 @@ use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
 use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
+
+use App\Http\Controllers\Backend\Marks\MarksController;
+
+use App\Http\Controllers\Backend\DefaultController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -353,8 +357,18 @@ Route::get('monthly/salary/payslip/{employee_id}', [MonthlySalaryController::cla
 }); 
 
 
- 
+/// User Profile and Change Password 
+Route::prefix('marks')->group(function(){
 
+Route::get('marks/entry/add', [MarksController::class, 'MarksAdd'])->name('marks.entry.add');
+
+Route::post('marks/entry/store', [MarksController::class, 'MarksStore'])->name('marks.entry.store'); 
+
+}); 
+ 
+Route::get('marks/getsubject', [DefaultController::class, 'GetSubject'])->name('marks.getsubject');
+
+Route::get('student/marks/getstudents', [DefaultController::class, 'GetStudents'])->name('student.marks.getstudents');
 
 
 }); // End Middleare Auth Route 
