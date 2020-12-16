@@ -28,6 +28,7 @@ use App\Http\Controllers\Backend\Employee\EmployeeAttendanceController;
 use App\Http\Controllers\Backend\Employee\MonthlySalaryController;
 
 use App\Http\Controllers\Backend\Marks\MarksController;
+use App\Http\Controllers\Backend\Marks\GradeController;
 
 use App\Http\Controllers\Backend\DefaultController;
 /*
@@ -357,12 +358,30 @@ Route::get('monthly/salary/payslip/{employee_id}', [MonthlySalaryController::cla
 }); 
 
 
-/// User Profile and Change Password 
+/// Marks Management Routes  
 Route::prefix('marks')->group(function(){
 
 Route::get('marks/entry/add', [MarksController::class, 'MarksAdd'])->name('marks.entry.add');
 
 Route::post('marks/entry/store', [MarksController::class, 'MarksStore'])->name('marks.entry.store'); 
+
+Route::get('marks/entry/edit', [MarksController::class, 'MarksEdit'])->name('marks.entry.edit'); 
+
+Route::get('marks/getstudents/edit', [MarksController::class, 'MarksEditGetStudents'])->name('student.edit.getstudents');
+
+Route::post('marks/entry/update', [MarksController::class, 'MarksUpdate'])->name('marks.entry.update');  
+
+// Marks Entry Grade 
+
+Route::get('marks/grade/view', [GradeController::class, 'MarksGradeView'])->name('marks.entry.grade');
+
+Route::get('marks/grade/add', [GradeController::class, 'MarksGradeAdd'])->name('marks.grade.add');
+
+Route::post('marks/grade/store', [GradeController::class, 'MarksGradeStore'])->name('store.marks.grade');
+
+Route::get('marks/grade/edit/{id}', [GradeController::class, 'MarksGradeEdit'])->name('marks.grade.edit');
+
+Route::post('marks/grade/update/{id}', [GradeController::class, 'MarksGradeUpdate'])->name('update.marks.grade');
 
 }); 
  
