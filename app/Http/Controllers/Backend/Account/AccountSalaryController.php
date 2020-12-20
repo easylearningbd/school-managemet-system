@@ -35,14 +35,14 @@ class AccountSalaryController extends Controller
 
       return view('backend.account.employee_salary.employee_salary_add');
     }
-
+ 
 
     public function AccountSalaryGetEmployee(Request $request){
 
     	$date = date('Y-m',strtotime($request->date));
     	 if ($date !='') {
     	 	$where[] = ['date','like',$date.'%'];
-    	 }
+    	    }
     	 
     	 $data = EmployeeAttendance::select('employee_id')->groupBy('employee_id')->with(['user'])->where($where)->get();
     	 // dd($allStudent);
@@ -69,7 +69,7 @@ class AccountSalaryController extends Controller
 
     	 	 
  	$html[$key]['tdsource']  = '<td>'.($key+1).'</td>';
- 	$html[$key]['tdsource'] .= '<td>'.$attend['user']['id_no'].'<input type="hidden" name="date" value"'.$date.'" >'.'</td>';
+ 	$html[$key]['tdsource'] .= '<td>'.$attend['user']['id_no'].'<input type="hidden" name="date" value="'.$date.'" >'.'</td>';
 
  	$html[$key]['tdsource'] .= '<td>'.$attend['user']['name'].'</td>';
  	$html[$key]['tdsource'] .= '<td>'.$attend['user']['salary'].'</td>';
@@ -83,7 +83,7 @@ class AccountSalaryController extends Controller
  	$html[$key]['tdsource'] .='<td>'.$totalsalary.'<input type="hidden" name="amount[]" value="'.$totalsalary.'" >'.'</td>';
 
  	 
- 	$html[$key]['tdsource'] .='<td>'.'<input type="hidden" name="employee_id[]" value="'.$attend->employee_id.'">'.'<input type="checkbox" name="checkmanage[]" id="id{{$key}}" value="'.$key.'" '.$checked.' style="transform: scale(1.5);margin-left: 10px;"> <label for="id{{$key}}"> </label> '.'</td>'; 
+ 	$html[$key]['tdsource'] .='<td>'.'<input type="hidden" name="employee_id[]" value="'.$attend->employee_id.'">'.'<input type="checkbox" name="checkmanage[]" id="'.$key.'" value="'.$key.'" '.$checked.' style="transform: scale(1.5);margin-left: 10px;"> <label for="'.$key.'"> </label> '.'</td>'; 
 
       }  // end foreach
     	return response()->json(@$html);
@@ -107,7 +107,7 @@ class AccountSalaryController extends Controller
     			$data->employee_id = $request->employee_id[$checkdata[$i]];
     			$data->amount = $request->amount[$checkdata[$i]];
     			$data->save();
-    		} // end for loop
+    		} 
     	} // end if 
 
     	if (!empty(@$data) || empty($checkdata)) {
