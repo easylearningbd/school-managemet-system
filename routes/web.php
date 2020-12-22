@@ -38,6 +38,7 @@ use App\Http\Controllers\Backend\Account\OtherCostController;
 
 use App\Http\Controllers\Backend\Report\ProfiteController;
 use App\Http\Controllers\Backend\Report\MarkSheetController;
+use App\Http\Controllers\Backend\Report\AttenReportController;
 
 
 /*
@@ -453,6 +454,11 @@ Route::get('marksheet/generate/view', [MarkSheetController::class, 'MarkSheetVie
 
 Route::get('marksheet/generate/get', [MarkSheetController::class, 'MarkSheetGet'])->name('report.marksheet.get');
 
+
+// Attendance Report Routes 
+Route::get('attendance/report/view', [AttenReportController::class, 'AttenReportView'])->name('attendance.report.view');
+
+Route::get('report/attendance/get', [AttenReportController::class, 'AttenReportGet'])->name('report.attendance.get');
 
 }); 
 
