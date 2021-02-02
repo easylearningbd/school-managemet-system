@@ -53,6 +53,11 @@ use App\Http\Controllers\Backend\Report\ResultReportController;
 |
 */
 
+Route::group(['middleware' => 'prevent-back-history'],function(){
+   
+   
+
+
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -474,11 +479,8 @@ Route::get('student/idcard/get', [ResultReportController::class, 'IdcardGet'])->
 }); 
 
 
-
-
-
-
-
-
+ 
 
 }); // End Middleare Auth Route 
+
+});  // Prevent Back Middleare
